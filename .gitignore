@@ -2,3 +2,4 @@ bin
 cmake-build-*
 .idea
 build
+examples/*.class
