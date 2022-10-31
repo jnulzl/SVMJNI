@@ -16,8 +16,11 @@ set(include_all ${include_all}
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
-#get_filename_component(LIB_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME_WLE)
-set(LIB_NAME svmjni)
+set(include_pub_all ${include_pub_all}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Module_svm.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Module_svm_c_api.h
+        PARENT_SCOPE
+        )
 
 if (BUILD_SHARED_LIBS)
     add_library(${LIB_NAME} SHARED ${src_all})

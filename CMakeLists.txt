@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
-project(SVMSVR)
+project(SVMJNI)
 
 set(CMAKE_SYSTEM_NAME "Linux") # Linux Android Windows
+string(TOLOWER ${PROJECT_NAME} LIB_NAME)
 
 message(STATUS "Operate System : " ${CMAKE_SYSTEM_NAME})
 message(STATUS "Compiler ID : " ${CMAKE_CXX_COMPILER_ID})
@@ -44,3 +45,30 @@ link_directories(${LIB_PATH})
 
 add_subdirectory(svm)
 add_subdirectory(examples)
+
+
+# Install lib
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install/${CMAKE_BUILD_TYPE})
+message(STATUS "Install root directory is : " ${CMAKE_INSTALL_PREFIX})
+message(STATUS "Build       type       is : " ${CMAKE_BUILD_TYPE})
+##############Install lib##############
+install(TARGETS
+            ${LIB_NAME}
+        ARCHIVE
+            DESTINATION lib
+        LIBRARY
+            DESTINATION lib
+        )
+##############Install include##############
+set(include_pub_all
+        ${include_pub_all}
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/data_type.h
+        )
+install(FILES ${include_pub_all} DESTINATION include)
+set(example_pub_all
+        ${example_pub_all}
+        ${CMAKE_CURRENT_SOURCE_DIR}/examples/demo.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/examples/demo_c.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/examples/SVMJNI.java
+        )
+install(FILES ${example_pub_all} DESTINATION demo)

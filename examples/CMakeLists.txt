@@ -6,8 +6,6 @@ add_executable(${exe_name} ${demo_src})
 target_include_directories(${exe_name} PRIVATE
         ${PROJECT_SOURCE_DIR}/svm/include)
 
-set(LIB_NAME svmjni)
-
 target_compile_options(${exe_name} PRIVATE
         -DPROJECT_ROOT="${PROJECT_SOURCE_DIR}"
         )
