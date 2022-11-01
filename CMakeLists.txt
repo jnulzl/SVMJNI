@@ -52,7 +52,6 @@ set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install/${CMAKE_SYSTEM_NAME}/${CM
 message(STATUS "Install root directory is : " ${CMAKE_INSTALL_PREFIX})
 message(STATUS "Build       type       is : " ${CMAKE_BUILD_TYPE})
 ##############Install lib##############
-<<<<<<< HEAD
 install(TARGETS ${LIB_NAME}
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
