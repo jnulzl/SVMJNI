@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(SVMJNI)
 
-set(CMAKE_SYSTEM_NAME "Linux") # Linux Android Windows
+# set(CMAKE_SYSTEM_NAME "Linux") # Linux Android Windows
 string(TOLOWER ${PROJECT_NAME} LIB_NAME)
 
 message(STATUS "Operate System : " ${CMAKE_SYSTEM_NAME})
@@ -48,16 +48,15 @@ add_subdirectory(examples)
 
 
 # Install lib
-set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install/${CMAKE_BUILD_TYPE})
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE})
 message(STATUS "Install root directory is : " ${CMAKE_INSTALL_PREFIX})
 message(STATUS "Build       type       is : " ${CMAKE_BUILD_TYPE})
 ##############Install lib##############
 install(TARGETS
             ${LIB_NAME}
-        ARCHIVE
-            DESTINATION lib
-        LIBRARY
-            DESTINATION lib
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION lib
         )
 ##############Install include##############
 set(include_pub_all
