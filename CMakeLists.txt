@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
 project(SVMJNI)
+if(NOT SYSTEM_NAME)
+    set(SYSTEM_NAME "Linux") # Linux Android Windows
+endif()
+set(CMAKE_SYSTEM_NAME ${SYSTEM_NAME})
+message(STATUS "System name is : " ${CMAKE_SYSTEM_NAME})
 
-# set(CMAKE_SYSTEM_NAME "Linux") # Linux Android Windows
 string(TOLOWER ${PROJECT_NAME} LIB_NAME)
 
 set(ENGINE_LOWER opencv)
