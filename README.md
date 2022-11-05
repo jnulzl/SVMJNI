@@ -17,7 +17,7 @@
 ```shell
 
 >>mkdir $ROOT/build && cd build
->>cmake ../ -DCMAKE_BUILD_TYPE=Release
+>>cmake ../ -DCMAKE_BUILD_TYPE=Release # -DSYSTEM_NAME=Linux/-DSYSTEM_NAME=Android 
 >> make VERBOSE=1 -j4
 ```
 
